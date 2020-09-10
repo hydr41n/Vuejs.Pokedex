@@ -1,24 +1,32 @@
 <template>
-	<div class="card">
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+  <div class="column is-4">
+    <div class="box">
+      <div class="content">
+        <figure class="image is-square">
+          <img :src="pokeurl+pokemonid(pokedata.url)">
         </figure>
       </div>
-      <div class="media-content">
-        <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@johnsmith</p>
+      <div class="content">
+          <p class="title is-size-1-mobile has-text-centered is-capitalized">{{pokedata.name}}</p>
       </div>
-    </div>
-  </div>
-</div>
+    </div>    
+  </div> 
 </template>
 
 
 <script>
 export default {
-  name: 'Pokelist'
-}
+  name: 'Pokelist',
+  props:['pokedata'],
+  data (){
+    return{      
+      pokeurl:'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'
+    }
+  },
+  methods:{
+    pokemonid :(thePath)=>{
+      return thePath.substring(thePath.lastIndexOf('/pokemon/')+9).replace(/\//g,'')+'.svg'
+    }
+  }
+};
 </script>

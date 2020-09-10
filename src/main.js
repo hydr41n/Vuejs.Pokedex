@@ -2,28 +2,16 @@ require('@/assets/main.scss');
 
 import Vue from 'vue'
 import App from './App.vue'
-const axios = require('axios').default;
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faDotCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faDotCircle)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
-  data () {
-    return {
-      pokemonlist: null
-    }
-  },
-  mounted () {
-    axios
-      .get('https://pokeapi.co/api/v2/pokemon/', {
-        params: {
-          offset: 0,
-          limit: 20
-        }
-      })
-      .then(res => (console.log(res.data.results)))
-      .catch(function (error) {
-        console.log(error);
-      })
-  }
+  render: h => h(App)
 }).$mount('#app')
