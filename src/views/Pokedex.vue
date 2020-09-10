@@ -2,7 +2,7 @@
  <section class="section">
 	<div class="content">
 		<p class="control has-icons-left field">
-			<input v-model="searchPokemon" class="input is-large is-danger is-focused is-rounded" type="text" placeholder="Search your Pokemon">
+			<input v-model="searchPokemon" class="input is-large is-danger is-focused is-rounded" type="text" placeholder="Search your Pokemon (currently limit to 20 pokemons for sample purposes)">
 			<span class="icon is-large is-left">
 				<font-awesome-icon class="has-text-danger" :icon="['fas', 'dot-circle']" />
 			</span>
@@ -33,6 +33,15 @@ export default {
       PM_results:[]
     }
   },
+  methods: {
+    filterPokemon: function(pokemon) {
+      var app = this;
+      return pokemon.filter(function(preset) {
+        let regex = new RegExp('(' + app.searchPokemon + ')', 'i');
+        return preset.name.match(regex);
+      })
+    }
+  },
   mounted () {
     axios
       .get('https://pokeapi.co/api/v2/pokemon', {
@@ -47,15 +56,6 @@ export default {
       .catch(function (error) {
         console.log(error);
       })
-  },
-  methods: {
-    filterPokemon: function(pokemon) {
-      var app = this;
-      return pokemon.filter(function(preset) {
-        let regex = new RegExp('(' + app.searchPokemon + ')', 'i');
-        return preset.name.match(regex);
-      })
-    }
   }
 
 };
