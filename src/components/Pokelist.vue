@@ -1,5 +1,6 @@
 <template>
-  <div class="column is-4">
+  <div class="column is-3" >
+  <router-link :to="{ path: '/pokemon', query: { name: pokedata.name } }">
     <div class="box">
       <div class="content">
         <figure class="image is-square">
@@ -10,6 +11,7 @@
           <p class="title is-size-1-mobile has-text-centered is-capitalized">{{pokedata.name}}</p>
       </div>
     </div>    
+  </router-link>
   </div> 
 </template>
 
