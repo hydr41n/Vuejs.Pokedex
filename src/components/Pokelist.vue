@@ -4,7 +4,7 @@
     <div class="box">
       <div class="content">
         <figure class="image is-square">
-          <img :src="pokeurl+pokemonid(pokedata.url)">
+          <img loading="lazy" :src="pokeurl+pokemonid(pokedata.url)">
         </figure>
       </div>
       <div class="content">

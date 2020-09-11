@@ -2,7 +2,7 @@
  <section class="section">
 	<div class="content">
 		<p class="control has-icons-left field">
-			<input v-model="searchPokemon" class="input is-large is-danger is-focused is-rounded" type="text" placeholder="Search your Pokemon (currently limit to 20 pokemons for sample purposes)">
+			<input v-model="searchPokemon" class="input is-large is-danger is-focused is-rounded" type="text" placeholder="Search your Pokemon">
 			<span class="icon is-large is-left">
 				<font-awesome-icon class="has-text-danger" :icon="['fas', 'dot-circle']" />
 			</span>
@@ -47,7 +47,7 @@ export default {
       .get('https://pokeapi.co/api/v2/pokemon', {
         params: {
           offset: 0,
-          limit: 20
+          limit: 1050
         }
       })
       .then(res => (
