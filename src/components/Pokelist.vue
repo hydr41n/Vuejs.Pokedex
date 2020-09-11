@@ -23,6 +23,7 @@ export default {
   data (){
     return{      
       pokeurl:'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'
+      // pokeurl:'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'
     }
   },
   methods:{
